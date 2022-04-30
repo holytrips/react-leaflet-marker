@@ -1,0 +1,17 @@
+.wrapper {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/** IE **/
+.wrapper_interactive {
+  pointer-events: visiblePainted;
+}
+.wrapper_interactive {
+  pointer-events: auto;
+}

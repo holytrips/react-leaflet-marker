@@ -1,0 +1,55 @@
+{
+  "name": "react-leaflet-marker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "keywords": [
+    "react",
+    "npm",
+    "leaflet",
+    "react-leaflet",
+    "marker"
+  ],
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "leaflet": "^1.8.0",
+    "react": "^17.0.2",
+    "react-leaflet": "^3.2.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/react": "^6.4.22",
+    "@storybook/testing-library": "0.0.11",
+    "@types/leaflet": "^1.7.9",
+    "@types/react": "^17.0.44",
+    "@types/react-dom": "^17.0.16",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-css-modules-transform": "^1.6.2",
+    "react-dom": "^18.1.0",
+    "storybook-css-modules-preset": "^1.1.1",
+    "typescript-plugin-css-modules": "^3.4.0"
+  },
+  "scripts": {
+    "build": "babel src -d lib --extensions \".ts,.tsx\" --ignore \"src/stories/*\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holytrips/react-leaflet-marker.git"
+  },
+  "author": "Valentin Kruglikov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/holytrips/react-leaflet-marker/issues"
+  },
+  "homepage": "https://github.com/holytrips/react-leaflet-marker#readme"
+}
