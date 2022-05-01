@@ -1,10 +1,10 @@
 import React, { useRef, useLayoutEffect, ReactElement } from 'react';
 import { useMap } from 'react-leaflet';
-import Marker from './Marker';
+import { IMarkerProps } from './Marker';
 import { DefaultMapPanes } from "leaflet";
 
 export interface IMarkerLayerProps {
-  children: ReactElement<typeof Marker> | ReactElement<typeof Marker>[];
+  children?: ReactElement<IMarkerProps> | ReactElement<IMarkerProps>[];
   /**
    * `Map pane` where the layer will be added.
    */
@@ -32,7 +32,7 @@ const MarkerLayer: React.FC<IMarkerLayerProps> = ({
       {React.Children.map(
           children,
           (child) => React.cloneElement(
-              child as ReactElement,
+              child as ReactElement<IMarkerProps>,
           ))
       }
     </div>

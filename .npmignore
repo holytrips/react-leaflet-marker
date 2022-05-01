@@ -2,5 +2,9 @@
 /.idea
 /src
 /.storybook
-/.babelrc
-/declaration.d.ts
+/.husky
+/globals.d.ts
+
+# Ignore Mac DS_Store files
+.DS_Store
+**/.DS_Store

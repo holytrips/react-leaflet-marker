@@ -1,8 +1,10 @@
-import React, { MutableRefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { LatLngExpression, DomUtil, ZoomAnimEventHandlerFn } from "leaflet";
+import React, { MutableRefObject, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { point, LatLngExpression, DomUtil, ZoomAnimEventHandlerFn } from "leaflet";
 import { useMap, useMapEvents } from "react-leaflet";
 import classNames from "classnames";
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import styles from './Marker.module.css';
 
 export type SizeType = [number, number];
@@ -48,10 +50,11 @@ const Marker: React.FC<IMarkerProps> = ({
     innerRef,
     riseOffset = 250,
     zIndexOffset = 0,
-    interactive= true,
+    interactive= false,
+    riseOnHover = false,
     placement = EPlacement.top,
 }) => {
-    const [zIndex, setZIndex] = useState(0);
+    const [bringToFront, setBringToFront] = useState(false);
     const map = useMap();
     const ref = useRef<HTMLDivElement>(null);
 
@@ -65,45 +68,66 @@ const Marker: React.FC<IMarkerProps> = ({
         }
     }, [innerRef]);
 
+    const placementPoint = useMemo(() => {
+        if (!size) return point(0,0);
+        let subX, subY;
+
+        if (placement === EPlacement.top) {
+            subX = size[0] / 2;
+            subY = size[1];
+        } else if (placement === EPlacement.bottom) {
+            subX = size[0] / 2;
+            subY = 0;
+        // EPlacement.center
+        } else {
+            subX = size[0] / 2;
+            subY = size[1] / 2;
+        }
+
+        return point(subX, subY, true);
+    }, [size, placement]);
+
+    const layerPoint = useMemo(
+        () => map
+            .latLngToLayerPoint(position)
+            .subtract(placementPoint)
+            .round(),
+        [map, placementPoint, position]
+    );
+
     const setPos = useCallback((newPosition: LatLngExpression) => {
         if (!ref.current) return;
 
-        const point = map.latLngToLayerPoint(newPosition).round();
+        const point = map.latLngToLayerPoint(newPosition).subtract(placementPoint).round();
+        
         DomUtil.setPosition(
             ref.current,
             point,
         );
-        setZIndex(point.y + zIndexOffset);
-    }, [map, zIndexOffset]);
+    }, [map, placementPoint]);
 
     const update = useCallback(() => {
         setPos(position);
     }, [setPos, position]);
-
-    const bringToFront = useCallback(() => {
-        setZIndex(riseOffset)
-    }, [riseOffset]);
-
-    const resetZIndex = useCallback(() => {
-        setZIndex(0)
-    }, []);
 
     const animateZoom: ZoomAnimEventHandlerFn = useCallback((e) => {
         if (!ref.current) return;
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        const point = map._latLngToNewLayerPoint(position, e.zoom, e.center).round();
+        const point = map._latLngToNewLayerPoint(position, e.zoom, e.center).subtract(placementPoint).round();
+
         DomUtil.setPosition(
             ref.current,
             point,
         );
-        setZIndex(point.y);
-    }, [map, position]);
+    }, [map, placementPoint, position]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         update();
     }, [update])
+
+    const zIndex = layerPoint.y + zIndexOffset + (bringToFront ? riseOffset : 0);
 
     useMapEvents({
         zoom: update,
@@ -113,30 +137,12 @@ const Marker: React.FC<IMarkerProps> = ({
         } : {})
     });
 
-    const offsetToPlacement = useMemo(() => {
-        if (!size) return {};
-
-        let marginTop = 0;
-        if (placement === EPlacement.top) {
-            marginTop = size[1] * -1;
-        } else if (placement === EPlacement.center) {
-            marginTop = (size[1] * -1) / 2;
-        } else if (placement === EPlacement.bottom) {
-            marginTop = 0;
-        }
-
-        return {
-            marginLeft: (size[0] / 2) * -1,
-            marginTop
-        };
-    }, [size, placement]);
-
     return (
         <div
             ref={ref}
-            {...(interactive ? {
-                onMouseOver: bringToFront,
-                onMouseOut: resetZIndex,
+            {...(riseOnHover ? {
+                onMouseEnter: () => setBringToFront(true),
+                onMouseLeave: () => setBringToFront(false),
             } : {})}
             className={classNames(styles.wrapper, {
                 [styles.wrapper_interactive]: interactive,
@@ -149,7 +155,6 @@ const Marker: React.FC<IMarkerProps> = ({
                     width: size[0],
                     height: size[1],
                 } : {}),
-                ...offsetToPlacement
             }}
         >
             {children}

@@ -1,8 +1,16 @@
 {
   "name": "react-leaflet-marker",
-  "version": "1.0.0",
+  "version": "1.0.3-alpha.3",
   "description": "",
-  "main": "lib/index.js",
+  "source": "src/index.ts",
+  "exports": {
+    "require": "./lib/react-leaflet-marker.cjs",
+    "default": "./lib/react-leaflet-marker.modern.js"
+  },
+  "main": "./lib/react-leaflet-marker.cjs",
+  "module": "./lib/react-leaflet-marker.module.js",
+  "unpkg": "./lib/react-leaflet-marker.umd.js",
+  "types": "./lib/index.d.ts",
   "keywords": [
     "react",
     "npm",
@@ -17,11 +25,7 @@
     "react-leaflet": "^3.2.5"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.10",
-    "@babel/core": "^7.17.10",
-    "@babel/preset-env": "^7.17.10",
-    "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.7",
+    "@size-limit/preset-small-lib": "^7.0.8",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-interactions": "^6.4.22",
@@ -33,18 +37,17 @@
     "@types/react-dom": "^17.0.16",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
-    "babel-loader": "^8.2.5",
-    "babel-plugin-css-modules-transform": "^1.6.2",
     "eslint": "^8.14.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "husky": "^7.0.4",
+    "microbundle": "^0.15.0",
     "react-dom": "^17.0.2",
-    "storybook-css-modules-preset": "^1.1.1",
-    "typescript-plugin-css-modules": "^3.4.0"
+    "size-limit": "^7.0.8",
+    "storybook-css-modules-preset": "^1.1.1"
   },
   "scripts": {
-    "build": "babel src -d lib --extensions \".ts,.tsx\" --ignore \"src/stories/*\"",
+    "build": "rm -rf ./lib/*; microbundle && size-limit",
     "dev": "start-storybook -p 6006",
     "prepare": "husky install",
     "eslint": "eslint \"src/**\""
@@ -58,5 +61,11 @@
   "bugs": {
     "url": "https://github.com/holytrips/react-leaflet-marker/issues"
   },
-  "homepage": "https://github.com/holytrips/react-leaflet-marker#readme"
+  "homepage": "https://github.com/holytrips/react-leaflet-marker#readme",
+  "size-limit": [
+    {
+      "path": "lib/react-leaflet-marker.js",
+      "limit": "100 KB"
+    }
+  ]
 }
