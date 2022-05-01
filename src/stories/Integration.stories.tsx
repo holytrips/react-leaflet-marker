@@ -3,7 +3,7 @@ import React from 'react';
 import 'leaflet/dist/leaflet.css';
 
 import MarkerLayer from "../MarkerLayer";
-import Marker, {EPlacement, IMarkerProps} from "../Marker";
+import Marker, { EPlacement, IMarkerProps } from "../Marker";
 import MapContainer from "./MapContainer";
 
 import markerIcon  from 'leaflet/dist/images/marker-icon-2x.png'
@@ -20,7 +20,7 @@ export default {
             control: { type: 'boolean' },
         },
         placement: {
-            options: EPlacement,
+            options: Object.values(EPlacement),
             control: {
                 type: 'select',
             },

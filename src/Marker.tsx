@@ -55,6 +55,7 @@ const Marker: React.FC<IMarkerProps> = ({
     const map = useMap();
     const ref = useRef<HTMLDivElement>(null);
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const hasAnimation = map._zoomAnimated && map.options.markerZoomAnimation;
 
@@ -62,7 +63,7 @@ const Marker: React.FC<IMarkerProps> = ({
         if (innerRef && ref.current) {
             innerRef.current = ref.current;
         }
-    }, []);
+    }, [innerRef]);
 
     const setPos = useCallback((newPosition: LatLngExpression) => {
         if (!ref.current) return;
@@ -85,11 +86,12 @@ const Marker: React.FC<IMarkerProps> = ({
 
     const resetZIndex = useCallback(() => {
         setZIndex(0)
-    }, [map]);
+    }, []);
 
     const animateZoom: ZoomAnimEventHandlerFn = useCallback((e) => {
         if (!ref.current) return;
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const point = map._latLngToNewLayerPoint(position, e.zoom, e.center).round();
         DomUtil.setPosition(
@@ -97,7 +99,7 @@ const Marker: React.FC<IMarkerProps> = ({
             point,
         );
         setZIndex(point.y);
-    }, [map]);
+    }, [map, position]);
 
     useEffect(() => {
         update();
@@ -118,13 +120,13 @@ const Marker: React.FC<IMarkerProps> = ({
         if (placement === EPlacement.top) {
             marginTop = size[1] * -1;
         } else if (placement === EPlacement.center) {
-            marginTop = size[1] / 2 * -1;
+            marginTop = (size[1] * -1) / 2;
         } else if (placement === EPlacement.bottom) {
             marginTop = 0;
         }
 
         return {
-            marginLeft: size[0] / 2 * -1,
+            marginLeft: (size[0] / 2) * -1,
             marginTop
         };
     }, [size, placement]);

@@ -11,7 +11,8 @@ module.exports = {
   ],
   framework: "@storybook/react",
   webpackFinal: async (config) => {
-    config.module.rules[0].exclude = /node_modules\/(?!(@react-leaflet|react-leaflet)\/).*/;
+    const jsRule = config.module.rules.find(_ => _?.test?.toString?.() === '/\\.(mjs|tsx?|jsx?)$/')
+    jsRule.exclude = /node_modules\/(?!(@react-leaflet|react-leaflet)\/).*/;
 
     return config;
   },
