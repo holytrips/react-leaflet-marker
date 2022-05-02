@@ -1,13 +1,12 @@
-import React from 'react';
-
 import 'leaflet/dist/leaflet.css';
 
-import MarkerLayer from "../MarkerLayer";
-import Marker, { EPlacement, IMarkerProps } from "../Marker";
-import MapContainer from "./MapContainer";
-
 import markerIcon  from 'leaflet/dist/images/marker-icon-2x.png'
+import React from 'react';
 import { useMap } from "react-leaflet";
+
+import Marker, { EPlacement, IMarkerProps } from "../src/Marker";
+import MarkerLayer from "../src/MarkerLayer";
+import MapContainer from "./MapContainer";
 
 export default {
     title: 'Integration with Leaflet',

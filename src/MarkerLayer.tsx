@@ -1,7 +1,8 @@
-import React, { useRef, useLayoutEffect, ReactElement, FC } from 'react';
-import { useMap } from 'react-leaflet';
-import { IMarkerProps } from './Marker';
 import { DefaultMapPanes } from "leaflet";
+import React, { FC,ReactElement, useLayoutEffect, useRef } from 'react';
+import { useMap } from 'react-leaflet';
+
+import { IMarkerProps } from './Marker';
 
 export interface IMarkerLayerProps {
   children?: ReactElement<IMarkerProps> | ReactElement<IMarkerProps>[];

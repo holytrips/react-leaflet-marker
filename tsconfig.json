@@ -1,6 +1,8 @@
 {
   "include": [
     "src/**/*",
+    "stories/**/*",
+    "declaration.d.ts",
     "node_modules/microbundle/index.d.ts"
   ],
   "compilerOptions": {

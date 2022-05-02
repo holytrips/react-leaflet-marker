@@ -13,7 +13,7 @@
 npm i react-leaflet-marker@latest --save
 ```
 
-## Simple use React Marker
+## Get started
 
 ```javascript
 import React from "react";
@@ -30,7 +30,7 @@ const ReactMarker = () => (
             <Marker
                 position={[55.796391, 49.108891]}
             >
-                <div>Hi, i'm a react component</div>
+                <div>Hi, i'm a react element</div>
             </Marker>
         </MarkerLayer>
     </MapContainer>
@@ -50,4 +50,4 @@ export default ReactMarker;
 | `zIndexOffset`? | 0 | number | By default, marker images zIndex is set automatically based on its latitude. Use this option if you want to put the marker on top of all others (or below), specifying a high value like `1000` (or high negative value, respectively). |
 | `interactive`? | false | bool | If set `false`, the marker won't respond to mouse |
 | `size`? | - | [width: number, height: number] | Size marker. Required for `placement` |
-| `placement`? | center | (string) | One of `top`, `center`, `bottom` |
+| `placement`? | center | string | One of `top`, `center`, `bottom` |
