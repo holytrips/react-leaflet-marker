@@ -1,3 +1,6 @@
+import { withTests } from '@storybook/addon-jest';
+import jestTestResult from '../.jest-test-results.json';
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -7,3 +10,10 @@ export const parameters = {
     },
   },
 }
+
+export const decorators = [
+  withTests({
+    results: jestTestResult,
+    filesExt: '(.*)'
+  }),
+];

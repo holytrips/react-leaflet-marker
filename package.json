@@ -25,13 +25,17 @@
     "react-leaflet": "^3.2.5"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.16.7",
     "@size-limit/preset-small-lib": "^7.0.8",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-jest": "^6.4.22",
     "@storybook/addon-links": "^6.4.22",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "0.0.11",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@types/jest": "^27.4.1",
     "@types/leaflet": "^1.7.9",
     "@types/react": "^17.0.44",
     "@types/react-dom": "^17.0.16",
@@ -42,6 +46,8 @@
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^7.0.4",
+    "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
     "microbundle": "^0.15.0",
     "react-dom": "^17.0.2",
     "size-limit": "^7.0.8",
@@ -51,6 +57,8 @@
     "build": "rm -rf ./lib/*; microbundle && size-limit",
     "dev": "start-storybook -p 6006",
     "prepare": "husky install",
+    "test": "jest ./tests",
+    "test:watch": "jest ./tests --json --outputFile=.jest-test-results.json --watch",
     "eslint": "eslint \"src/**\""
   },
   "repository": {
@@ -68,5 +76,9 @@
       "path": "lib/react-leaflet-marker.js",
       "limit": "100 KB"
     }
-  ]
+  ],
+  "jest": {
+    "testEnvironment": "jsdom",
+    "modulePathIgnorePatterns": ["node_modules", "jest-test-results.json"]
+  }
 }

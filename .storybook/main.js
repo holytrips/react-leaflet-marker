@@ -7,7 +7,8 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-     "storybook-css-modules-preset"
+    "@storybook/addon-jest",
+    "storybook-css-modules-preset"
   ],
   framework: "@storybook/react",
   webpackFinal: async (config) => {

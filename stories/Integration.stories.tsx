@@ -10,6 +10,9 @@ import MapContainer from "./MapContainer";
 
 export default {
     title: 'Integration with Leaflet',
+    parameters: {
+        jest: '',
+    },
     args: {
         zIndexOffset: 0,
         riseOffset: 250,
