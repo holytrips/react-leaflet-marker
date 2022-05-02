@@ -3,8 +3,6 @@ import { point, LatLngExpression, DomUtil, ZoomAnimEventHandlerFn } from "leafle
 import { useMap, useMapEvents } from "react-leaflet";
 import classNames from "classnames";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import styles from './Marker.module.css';
 
 export type SizeType = [number, number];

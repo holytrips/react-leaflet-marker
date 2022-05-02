@@ -1,5 +1,6 @@
 {
   "include": [
+    "src/**/*",
     "node_modules/microbundle/index.d.ts"
   ],
   "compilerOptions": {

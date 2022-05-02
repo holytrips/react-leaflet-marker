@@ -4,6 +4,10 @@
 /.storybook
 /.husky
 /globals.d.ts
+/.github
+/.nvmrc
+/.eslintrc.json
+/.eslintignore
 
 # Ignore Mac DS_Store files
 .DS_Store

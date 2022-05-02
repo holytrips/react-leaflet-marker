@@ -1,6 +1,6 @@
 {
   "name": "react-leaflet-marker",
-  "version": "1.0.3-alpha.4",
+  "version": "1.0.3-alpha.5",
   "description": "",
   "source": "src/index.ts",
   "exports": {

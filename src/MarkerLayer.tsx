@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, ReactElement } from 'react';
+import React, { useRef, useLayoutEffect, ReactElement, FC } from 'react';
 import { useMap } from 'react-leaflet';
 import { IMarkerProps } from './Marker';
 import { DefaultMapPanes } from "leaflet";
@@ -11,7 +11,7 @@ export interface IMarkerLayerProps {
   pane?: keyof DefaultMapPanes;
 }
 
-const MarkerLayer: React.FC<IMarkerLayerProps> = ({
+const MarkerLayer: FC<IMarkerLayerProps> = ({
   children,
   pane = 'overlayPane'
 }) => {
