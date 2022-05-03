@@ -19,10 +19,10 @@
     "marker"
   ],
   "dependencies": {
-    "classnames": "^2.3.1",
-    "leaflet": "^1.8.0",
-    "react": "^17.0.2",
-    "react-leaflet": "^3.2.5"
+    "@react-leaflet/core": "^1.1.0",
+    "classnames": "^2.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",
@@ -48,8 +48,9 @@
     "husky": "^7.0.4",
     "jest": "^28.0.3",
     "jest-environment-jsdom": "^28.0.2",
+    "leaflet": "^1.8.0",
     "microbundle": "^0.15.0",
-    "react-dom": "^17.0.2",
+    "react-leaflet": "^3.2.5",
     "size-limit": "^7.0.8",
     "storybook-css-modules-preset": "^1.1.1"
   },
@@ -79,6 +80,9 @@
   ],
   "jest": {
     "testEnvironment": "jsdom",
-    "modulePathIgnorePatterns": ["node_modules", "jest-test-results.json"]
+    "modulePathIgnorePatterns": [
+      "node_modules",
+      "jest-test-results.json"
+    ]
   }
 }

@@ -11,7 +11,7 @@ import MapContainer from "./MapContainer";
 export default {
     title: 'Integration with Leaflet',
     parameters: {
-        jest: '',
+        jest: ['useZIndex'],
     },
     args: {
         zIndexOffset: 0,

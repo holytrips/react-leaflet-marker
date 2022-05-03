@@ -1,9 +1,9 @@
+import { useLeafletContext } from "@react-leaflet/core";
 import { LatLngExpression, Point } from "leaflet";
 import { useMemo } from "react";
-import { useMap } from "react-leaflet";
 
 const useLatitudeOffset = (placementAsPoint: Point, position: LatLngExpression) => {
-    const map = useMap();
+    const map = useLeafletContext().map;
 
     return useMemo(
         () => map

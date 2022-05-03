@@ -1,6 +1,6 @@
+import { useLeafletContext } from "@react-leaflet/core";
 import { DefaultMapPanes } from "leaflet";
 import React, { FC,ReactElement, useLayoutEffect, useRef } from 'react';
-import { useMap } from 'react-leaflet';
 
 import { IMarkerProps } from './Marker';
 
@@ -16,7 +16,7 @@ const MarkerLayer: FC<IMarkerLayerProps> = ({
   children,
   pane = 'overlayPane'
 }) => {
-  const map = useMap();
+  const map = useLeafletContext().map;
   const layerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {

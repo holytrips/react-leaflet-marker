@@ -13,7 +13,6 @@ export const parameters = {
 
 export const decorators = [
   withTests({
-    results: jestTestResult,
-    filesExt: '(.*)'
+    results: jestTestResult
   }),
 ];
