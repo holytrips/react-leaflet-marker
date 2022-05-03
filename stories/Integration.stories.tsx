@@ -4,14 +4,15 @@ import markerIcon  from 'leaflet/dist/images/marker-icon-2x.png'
 import React from 'react';
 import { useMap } from "react-leaflet";
 
-import Marker, { EPlacement, IMarkerProps } from "../src/Marker";
+import Marker from "../src/Marker";
+import { EPlacement, IMarkerProps } from "../src/Marker.types";
 import MarkerLayer from "../src/MarkerLayer";
 import MapContainer from "./MapContainer";
 
 export default {
     title: 'Integration with Leaflet',
     parameters: {
-        jest: ['useZIndex'],
+        jest: ['useZIndex', 'usePlacementAsPoint'],
     },
     args: {
         zIndexOffset: 0,

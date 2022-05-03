@@ -3,14 +3,15 @@
   "version": "1.0.3-alpha.8",
   "description": "",
   "source": "src/index.ts",
+  "type": "module",
   "exports": {
     "require": "./lib/react-leaflet-marker.cjs",
     "default": "./lib/react-leaflet-marker.modern.js"
   },
-  "main": "./lib/react-leaflet-marker.cjs",
-  "module": "./lib/react-leaflet-marker.module.js",
-  "unpkg": "./lib/react-leaflet-marker.umd.js",
-  "types": "./lib/index.d.ts",
+  "main": "lib/react-leaflet-marker.cjs",
+  "module": "lib/react-leaflet-marker.module.js",
+  "unpkg": "lib/react-leaflet-marker.umd.js",
+  "types": "lib/index.d.ts",
   "keywords": [
     "react",
     "npm",
@@ -20,9 +21,10 @@
   ],
   "dependencies": {
     "@react-leaflet/core": "^1.1.0",
-    "classnames": "^2.0.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "classnames": "^2.0.1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",
@@ -50,12 +52,13 @@
     "jest-environment-jsdom": "^28.0.2",
     "leaflet": "^1.8.0",
     "microbundle": "^0.15.0",
+    "react": "^17.0.1",
     "react-leaflet": "^3.2.5",
     "size-limit": "^7.0.8",
     "storybook-css-modules-preset": "^1.1.1"
   },
   "scripts": {
-    "build": "rm -rf ./lib/*; microbundle && size-limit",
+    "build": "rm -rf ./lib/*; microbundle build --tsconfig tsconfig.build.json && size-limit",
     "dev": "start-storybook -p 6006",
     "prepare": "husky install",
     "test": "jest ./tests",
@@ -74,8 +77,8 @@
   "homepage": "https://github.com/holytrips/react-leaflet-marker#readme",
   "size-limit": [
     {
-      "path": "lib/react-leaflet-marker.js",
-      "limit": "100 KB"
+      "path": "lib/react-leaflet-marker.cjs",
+      "limit": "150 KB"
     }
   ],
   "jest": {
@@ -84,5 +87,10 @@
       "node_modules",
       "jest-test-results.json"
     ]
-  }
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 10"
+  ]
 }

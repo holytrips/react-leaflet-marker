@@ -1,16 +1,8 @@
-import { useLeafletContext } from "@react-leaflet/core";
-import { DefaultMapPanes } from "leaflet";
-import React, { FC,ReactElement, useLayoutEffect, useRef } from 'react';
+import {useLeafletContext} from "@react-leaflet/core";
+import React, {FC, ReactElement, useLayoutEffect, useRef} from 'react';
 
-import { IMarkerProps } from './Marker';
-
-export interface IMarkerLayerProps {
-  children?: ReactElement<IMarkerProps> | ReactElement<IMarkerProps>[];
-  /**
-   * `Map pane` where the layer will be added.
-   */
-  pane?: keyof DefaultMapPanes;
-}
+import {IMarkerProps} from "./Marker.types";
+import {IMarkerLayerProps} from "./MarkerLayer.types";
 
 const MarkerLayer: FC<IMarkerLayerProps> = ({
   children,

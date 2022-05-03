@@ -1,7 +1,7 @@
 import { Point, point } from "leaflet";
 import { useMemo } from "react";
 
-import { EPlacement, SizeType } from "../Marker";
+import { EPlacement, SizeType } from "../Marker.types";
 
 const usePlacementAsPoint = (placement: EPlacement, size?: SizeType): Point => {
     return useMemo(() => {
