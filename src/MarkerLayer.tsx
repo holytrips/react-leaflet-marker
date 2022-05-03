@@ -1,8 +1,8 @@
-import {useLeafletContext} from "@react-leaflet/core";
-import React, {FC, ReactElement, useLayoutEffect, useRef} from 'react';
+import { useLeafletContext } from "@react-leaflet/core";
+import React, { FC, ReactElement, useEffect, useRef } from 'react';
 
-import {IMarkerProps} from "./Marker.types";
-import {IMarkerLayerProps} from "./MarkerLayer.types";
+import { IMarkerProps } from "./Marker.types";
+import { IMarkerLayerProps } from "./MarkerLayer.types";
 
 const MarkerLayer: FC<IMarkerLayerProps> = ({
   children,
@@ -11,7 +11,7 @@ const MarkerLayer: FC<IMarkerLayerProps> = ({
   const map = useLeafletContext().map;
   const layerRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (layerRef.current) {
       map.getPanes()[pane].appendChild(layerRef.current);
     }

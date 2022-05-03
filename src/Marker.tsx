@@ -52,7 +52,7 @@ const Marker: FC<IMarkerProps> = ({
                 zIndex,
                 ...(size ? {
                     width: size[0],
-                    height: size[0],
+                    height: size[1],
                 } : null),
             }}
         >
