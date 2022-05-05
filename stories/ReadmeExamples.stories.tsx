@@ -74,7 +74,7 @@ export const MarkerWithPlacement = ({ placement, size }: IMarkerProps) => (
                     background: 'red',
                     textAlign: 'center'
                 }}>
-                    {placement ? placement : 'default = top'}
+                    {placement ? placement : 'default = center'}
                 </div>
             </Marker>
         </MarkerLayer>

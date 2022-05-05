@@ -9,6 +9,8 @@ export enum EPlacement {
     bottom = 'bottom',
 }
 
+export type PlacementType = EPlacement | "top" | "center" | "bottom";
+
 export interface IMarkerProps {
     position: LatLngExpression;
     innerRef?: MutableRefObject<HTMLDivElement | null>;
@@ -33,5 +35,5 @@ export interface IMarkerProps {
      * width, height
      */
     size?: SizeType;
-    placement?: `${EPlacement}`;
+    placement?: PlacementType;
 }

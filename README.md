@@ -7,6 +7,8 @@
     <img alt="types included" src="https://badgen.net/npm/types/react-leaflet-marker" />
 </a>
 
+###Custom markers for react-leaflet maps
+
 ## Install
 
 ```sh
@@ -58,15 +60,15 @@ Markers without `size` can't take `placement` props.
 ![alt text](.github/images/simple.png)
 
 ### Marker with fixed size
-Just add `size` and `placement`.
-It is the best practice the most cases.
+Just add `size` props. It is the best practice the most cases.
 
 ```javascript
 <MarkerLayer>
     <Marker
         position={[55.796391, 49.108891]}
         size={[80, 20]} // required for placement
-        placement="center"
+        // you can use optional `placement`
+        placement="center" // "top", "bottom"
     >
         <div style={{
             background: 'red',
@@ -89,7 +91,6 @@ The marker will get on top of others when you hover the mouse over it.
         size={[80, 40]} // required for placement
         interactive // required for riseOnHover
         riseOnHover
-        placement="center"
     >
         <div style={{
             background: 'red',
