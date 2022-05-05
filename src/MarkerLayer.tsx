@@ -12,9 +12,13 @@ const MarkerLayer: FC<IMarkerLayerProps> = ({
   const layerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (layerRef.current) {
-      map.getPanes()[pane].appendChild(layerRef.current);
-    }
+    const element = layerRef.current;
+    if (!element) return;
+
+    map.getPanes()[pane].appendChild(element);
+    return () => {
+      map.getPanes()[pane].removeChild(element);
+    };
   }, [map, pane]);
 
   return (

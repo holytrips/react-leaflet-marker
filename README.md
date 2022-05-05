@@ -10,7 +10,7 @@
 ## Install
 
 ```sh
-npm i react-leaflet-marker@latest --save
+npm i react-leaflet-marker --save
 ```
 
 ## Get started

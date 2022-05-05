@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Marker Snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper wrapper_interactive leaflet-zoom-hide"
+    style="z-index: 123; width: 23px; height: 54px;"
+  >
+    children
+  </div>
+</DocumentFragment>
+`;

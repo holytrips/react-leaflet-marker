@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MarkerLayer snapshots MarkerLayer Multi Markers tree 1`] = `
+exports[`MarkerLayer Snapshots 1`] = `
 <DocumentFragment>
   <div
     class="leaflet-objects-pane leaflet-marker-pane"
@@ -22,21 +22,6 @@ exports[`MarkerLayer snapshots MarkerLayer Multi Markers tree 1`] = `
       position="[object Object]"
     >
       children 3
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`MarkerLayer snapshots MarkerLayer One Marker tree 1`] = `
-<DocumentFragment>
-  <div
-    class="leaflet-objects-pane leaflet-marker-pane"
-  >
-    <div
-      data-component="Marker"
-      position="[object Object]"
-    >
-      children
     </div>
   </div>
 </DocumentFragment>
