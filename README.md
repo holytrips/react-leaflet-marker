@@ -38,6 +38,71 @@ const ReactMarker = () => (
 
 export default ReactMarker;
 ```
+## Examples
+
+### Simple marker with flexible size
+Markers without `size` can't take `placement` props.
+```javascript
+<MarkerLayer>
+    <Marker
+        position={[55.796391, 49.108891]}
+    >
+        <div style={{
+            background: 'red'
+        }}>
+            simple{'\u00A0'}marker
+        </div>
+    </Marker>
+</MarkerLayer>
+```
+![alt text](.github/images/simple.png)
+
+### Marker with fixed size
+Just add `size` and `placement`.
+It is the best practice the most cases.
+
+```javascript
+<MarkerLayer>
+    <Marker
+        position={[55.796391, 49.108891]}
+        size={[80, 20]} // required for placement
+        placement={EPlacement.center}
+    >
+        <div style={{
+            background: 'red',
+            textAlign: 'center'
+        }}>
+            center
+        </div>
+    </Marker>
+</MarkerLayer>
+```
+![alt text](.github/images/placement_center.png)
+
+### Rise on hover
+The marker will get on top of others when you hover the mouse over it.
+
+```javascript
+<MarkerLayer>
+    <Marker
+        position={[55.796391, 49.108891]}
+        size={[80, 40]} // required for placement
+        interactive // required for riseOnHover
+        riseOnHover
+        placement={EPlacement.center}
+    >
+        <div style={{
+            background: 'red',
+            textAlign: 'center'
+        }}>
+            First marker
+        </div>
+    </Marker>
+</MarkerLayer>
+```
+![alt text](.github/images/rise_on_hover.png)
+
+
 
 ## Props
 

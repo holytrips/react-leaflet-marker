@@ -15,9 +15,10 @@ const MarkerLayer: FC<IMarkerLayerProps> = ({
     const element = layerRef.current;
     if (!element) return;
 
-    map.getPanes()[pane].appendChild(element);
+    const paneElement = map.getPanes()[pane];
+    paneElement.appendChild(element);
     return () => {
-      map.getPanes()[pane].removeChild(element);
+      paneElement.removeChild(element);
     };
   }, [map, pane]);
 
