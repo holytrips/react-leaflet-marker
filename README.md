@@ -7,7 +7,7 @@
     <img alt="types included" src="https://badgen.net/npm/types/react-leaflet-marker" />
 </a>
 
-###Custom markers for react-leaflet maps
+### Custom markers for react-leaflet maps
 
 ## Install
 
