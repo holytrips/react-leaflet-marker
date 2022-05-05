@@ -3,7 +3,7 @@ import { useMemo } from "react";
 
 import { EPlacement, SizeType } from "../Marker.types";
 
-const usePlacementAsPoint = (placement: EPlacement, size?: SizeType): Point => {
+const usePlacementAsPoint = (placement: `${EPlacement}`, size?: SizeType): Point => {
     return useMemo(() => {
         if (!size) return point(0, 0);
         let subX, subY;

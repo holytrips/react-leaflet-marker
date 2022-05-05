@@ -54,7 +54,7 @@ export const MarkerWithPlacement = ({ placement, size }: IMarkerProps) => (
             <Marker
                 position={[55.796391, 49.108891]}
                 size={[15, 15]}
-                placement={EPlacement.center}
+                placement="center"
                 zIndexOffset={100}
             >
                 <div style={{

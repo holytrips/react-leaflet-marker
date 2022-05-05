@@ -33,5 +33,5 @@ export interface IMarkerProps {
      * width, height
      */
     size?: SizeType;
-    placement?: EPlacement;
+    placement?: `${EPlacement}`;
 }
