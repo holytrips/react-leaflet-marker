@@ -1,27 +1,25 @@
-import React, { useRef, useLayoutEffect, ReactElement, FC } from 'react';
-import { useMap } from 'react-leaflet';
-import { IMarkerProps } from './Marker';
-import { DefaultMapPanes } from "leaflet";
+import { useLeafletContext } from "@react-leaflet/core";
+import React, { FC, ReactElement, useEffect, useRef } from 'react';
 
-export interface IMarkerLayerProps {
-  children?: ReactElement<IMarkerProps> | ReactElement<IMarkerProps>[];
-  /**
-   * `Map pane` where the layer will be added.
-   */
-  pane?: keyof DefaultMapPanes;
-}
+import { IMarkerProps } from "./Marker.types";
+import { IMarkerLayerProps } from "./MarkerLayer.types";
 
 const MarkerLayer: FC<IMarkerLayerProps> = ({
   children,
   pane = 'overlayPane'
 }) => {
-  const map = useMap();
+  const map = useLeafletContext().map;
   const layerRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    if (layerRef.current) {
-      map.getPanes()[pane].appendChild(layerRef.current);
-    }
+  useEffect(() => {
+    const element = layerRef.current;
+    if (!element) return;
+
+    const paneElement = map.getPanes()[pane];
+    paneElement.appendChild(element);
+    return () => {
+      paneElement.removeChild(element);
+    };
   }, [map, pane]);
 
   return (

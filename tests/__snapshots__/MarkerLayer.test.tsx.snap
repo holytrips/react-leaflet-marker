@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MarkerLayer Snapshots 1`] = `
+<DocumentFragment>
+  <div
+    class="leaflet-objects-pane leaflet-marker-pane"
+  >
+    <div
+      data-component="Marker"
+      position="[object Object]"
+    >
+      children 1
+    </div>
+    <div
+      data-component="Marker"
+      position="[object Object]"
+    >
+      children 2
+    </div>
+    <div
+      data-component="Marker"
+      position="[object Object]"
+    >
+      children 3
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,16 +1,17 @@
 {
   "name": "react-leaflet-marker",
-  "version": "1.0.3-alpha.8",
+  "version": "1.1.0",
   "description": "",
   "source": "src/index.ts",
+  "type": "module",
   "exports": {
     "require": "./lib/react-leaflet-marker.cjs",
     "default": "./lib/react-leaflet-marker.modern.js"
   },
-  "main": "./lib/react-leaflet-marker.cjs",
-  "module": "./lib/react-leaflet-marker.module.js",
-  "unpkg": "./lib/react-leaflet-marker.umd.js",
-  "types": "./lib/index.d.ts",
+  "main": "lib/react-leaflet-marker.cjs",
+  "module": "lib/react-leaflet-marker.module.js",
+  "unpkg": "lib/react-leaflet-marker.umd.js",
+  "types": "lib/index.d.ts",
   "keywords": [
     "react",
     "npm",
@@ -19,19 +20,29 @@
     "marker"
   ],
   "dependencies": {
-    "classnames": "^2.3.1",
-    "leaflet": "^1.8.0",
+    "classnames": "^2.0.1"
+  },
+  "peerDependencies": {
+    "@react-leaflet/core": "^1.1.0",
     "react": "^17.0.2",
-    "react-leaflet": "^3.2.5"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@react-leaflet/core": "^1.1.0",
     "@size-limit/preset-small-lib": "^7.0.8",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-jest": "^6.4.22",
     "@storybook/addon-links": "^6.4.22",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "0.0.11",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@types/jest": "^27.4.1",
     "@types/leaflet": "^1.7.9",
     "@types/react": "^17.0.44",
     "@types/react-dom": "^17.0.16",
@@ -40,16 +51,25 @@
     "eslint": "^8.14.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^7.0.4",
+    "jest": "^28.0.3",
+    "jest-css-modules": "^2.1.0",
+    "jest-environment-jsdom": "^28.0.2",
+    "leaflet": "^1.8.0",
     "microbundle": "^0.15.0",
+    "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-leaflet": "^3.2.5",
     "size-limit": "^7.0.8",
     "storybook-css-modules-preset": "^1.1.1"
   },
   "scripts": {
-    "build": "rm -rf ./lib/*; microbundle && size-limit",
+    "build": "rm -rf ./lib/*; microbundle build --tsconfig tsconfig.build.json && size-limit",
     "dev": "start-storybook -p 6006",
     "prepare": "husky install",
+    "test": "jest",
+    "test:watch": "jest --json --outputFile=.jest-test-results.json --watch",
     "eslint": "eslint \"src/**\""
   },
   "repository": {
@@ -64,8 +84,23 @@
   "homepage": "https://github.com/holytrips/react-leaflet-marker#readme",
   "size-limit": [
     {
-      "path": "lib/react-leaflet-marker.js",
-      "limit": "100 KB"
+      "path": "lib/react-leaflet-marker.cjs",
+      "limit": "150 KB"
     }
+  ],
+  "jest": {
+    "testEnvironment": "jsdom",
+    "modulePathIgnorePatterns": [
+      "node_modules",
+      "jest-test-results.json"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
+    }
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 10"
   ]
 }

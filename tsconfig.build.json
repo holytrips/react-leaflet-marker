@@ -1,8 +1,6 @@
 {
   "include": [
-    "src/**/*",
-    "stories/**/*",
-    "declaration.d.ts"
+    "declaration.d.ts",
   ],
   "exclude": [
     "node_modules",
