@@ -37,6 +37,7 @@ const Marker: FC<IMarkerProps> = ({
         position,
         markerRef,
     );
+    const [width, height] = size ?? [];
 
     return (
         <div
@@ -50,10 +51,8 @@ const Marker: FC<IMarkerProps> = ({
             })}
             style={{
                 zIndex,
-                ...(size ? {
-                    width: size[0],
-                    height: size[1],
-                } : null),
+                width,
+                height,
             }}
         >
             {children}
