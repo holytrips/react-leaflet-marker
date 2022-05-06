@@ -1,16 +1,16 @@
-# REACT-LEAFLET-MARKER
+# react-leaflet-marker
+[![GitHub Actions CI](https://img.shields.io/npm/v/react-leaflet-marker.svg)](https://www.npmjs.com/package/react-leaflet-marker)
+[![GitHub Actions CI](https://badgen.net/npm/types/react-leaflet-marker)](https://npmjs.org/package/react-leaflet-marker)
+[![GitHub Actions CI](https://github.com/holytrips/react-leaflet-marker/actions/workflows/ci.yml/badge.svg)](https://github.com/holytrips/react-leaflet-marker/actions/workflows/ci.yml)
+[![GitHub Actions CI](https://img.shields.io/github/license/holytrips/react-leaflet-marker.svg)](https://github.com/holytrips/react-leaflet-marker/blob/master/LICENSE)
 
-<a href="https://www.npmjs.com/package/react-leaflet-marker">
-    <img alt="npm" src="https://img.shields.io/npm/v/react-leaflet-marker.svg" />
-</a>
-<a href="https://npmjs.org/package/react-leaflet-marker">
-    <img alt="types included" src="https://badgen.net/npm/types/react-leaflet-marker" />
-</a>
+Custom markers for react-leaflet maps.
+You can use any react component with version of react-leaflet 3.x.x
 
-### Custom markers for react-leaflet maps
+### Support zoom animation
+![animation](.github/images/animation.gif)
 
 ## Install
-
 ```sh
 npm i react-leaflet-marker --save
 ```
@@ -44,6 +44,8 @@ export default ReactMarker;
 
 ### Simple marker with flexible size
 Markers without `size` can't take `placement` props.
+
+![simple](.github/images/simple.png)
 ```javascript
 <MarkerLayer>
     <Marker
@@ -57,11 +59,11 @@ Markers without `size` can't take `placement` props.
     </Marker>
 </MarkerLayer>
 ```
-![alt text](.github/images/simple.png)
 
 ### Marker with fixed size
 Just add `size` props. It is the best practice the most cases.
 
+![placement](.github/images/placement.png)
 ```javascript
 <MarkerLayer>
     <Marker
@@ -79,16 +81,16 @@ Just add `size` props. It is the best practice the most cases.
     </Marker>
 </MarkerLayer>
 ```
-![alt text](.github/images/placement_center.png)
 
 ### Rise on hover
 The marker will get on top of others when you hover the mouse over it.
 
+![rise on hover](.github/images/rise_on_hover.gif)
 ```javascript
 <MarkerLayer>
     <Marker
         position={[55.796391, 49.108891]}
-        size={[80, 40]} // required for placement
+        size={[80, 40]}
         interactive // required for riseOnHover
         riseOnHover
     >
@@ -101,9 +103,12 @@ The marker will get on top of others when you hover the mouse over it.
     </Marker>
 </MarkerLayer>
 ```
-![alt text](.github/images/rise_on_hover.png)
 
+### Use any react component as marker
 
+For example, I used [antd](https://github.com/ant-design/ant-design/) dropdown and custom icons
+
+![cover](.github/images/cover.png)
 
 ## Props
 

@@ -66,6 +66,58 @@ export const MarkerWithPlacement = ({ placement, size }: IMarkerProps) => (
                 }} />
             </Marker>
             <Marker
+                position={[55.796391, 49.308891]}
+                size={[15, 15]}
+                placement="center"
+                zIndexOffset={100}
+            >
+                <div style={{
+                    width: 15,
+                    height: 15,
+                    background: 'blue',
+                    borderRadius: '50%',
+                    opacity: '0.6'
+                }} />
+            </Marker>
+            <Marker
+                position={[55.796391, 48.908891]}
+                size={size}
+                placement="bottom"
+            >
+                <div style={{
+                    background: 'red',
+                    textAlign: 'center'
+                }}>
+                    bottom
+                </div>
+            </Marker>
+            <Marker
+                position={[55.796391, 48.908891]}
+                size={[15, 15]}
+                placement="center"
+                zIndexOffset={100}
+            >
+                <div style={{
+                    width: 15,
+                    height: 15,
+                    background: 'blue',
+                    borderRadius: '50%',
+                    opacity: '0.6'
+                }} />
+            </Marker>
+            <Marker
+                position={[55.796391, 49.308891]}
+                size={size}
+                placement="top"
+            >
+                <div style={{
+                    background: 'red',
+                    textAlign: 'center'
+                }}>
+                    top
+                </div>
+            </Marker>
+            <Marker
                 position={[55.796391, 49.108891]}
                 size={size}
                 placement={placement}
@@ -74,7 +126,7 @@ export const MarkerWithPlacement = ({ placement, size }: IMarkerProps) => (
                     background: 'red',
                     textAlign: 'center'
                 }}>
-                    {placement ? placement : 'default = center'}
+                    {placement}
                 </div>
             </Marker>
         </MarkerLayer>
@@ -82,7 +134,8 @@ export const MarkerWithPlacement = ({ placement, size }: IMarkerProps) => (
 );
 
 MarkerWithPlacement.args = {
-    size: [80, 20]
+    size: [80, 20],
+    placement: 'center'
 };
 MarkerWithPlacement.argTypes = {
     placement: {
