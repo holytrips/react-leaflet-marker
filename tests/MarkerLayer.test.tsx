@@ -1,6 +1,6 @@
 import { useLeafletContext } from '@react-leaflet/core';
 import { cleanup, render } from "@testing-library/react";
-import React, { StrictMode } from 'react'
+import React from 'react'
 
 import Marker from '../src/Marker'
 import MarkerLayer from '../src/MarkerLayer'
