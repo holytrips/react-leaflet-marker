@@ -1,6 +1,6 @@
 import { useLeafletContext } from '@react-leaflet/core';
 import { cleanup, render } from "@testing-library/react";
-import React, { StrictMode } from 'react'
+import React from 'react'
 
 import Marker from '../src/Marker'
 import MarkerLayer from '../src/MarkerLayer'
@@ -35,11 +35,9 @@ describe('MarkerLayer', () => {
         const map = useLeafletContext().map;
 
         render(
-            <StrictMode>
-                <MarkerLayer>
-                    <Marker position={{lat: 55.84294011297764, lng: 48.52798461914063}}>children</Marker>
-                </MarkerLayer>
-            </StrictMode>,
+            <MarkerLayer>
+                <Marker position={{lat: 55.84294011297764, lng: 48.52798461914063}}>children</Marker>
+            </MarkerLayer>
         );
 
         expect(map.getPanes().overlayPane.appendChild).toHaveBeenCalledTimes(1);
@@ -50,11 +48,9 @@ describe('MarkerLayer', () => {
         const map = useLeafletContext().map;
 
         const { unmount } = render(
-            <StrictMode>
-                <MarkerLayer pane="markerPane">
-                    <Marker position={{lat: 55.84294011297764, lng: 48.52798461914063}}>children</Marker>
-                </MarkerLayer>
-            </StrictMode>,
+            <MarkerLayer pane="markerPane">
+                <Marker position={{lat: 55.84294011297764, lng: 48.52798461914063}}>children</Marker>
+            </MarkerLayer>
         );
 
         unmount();
@@ -68,20 +64,16 @@ describe('MarkerLayer', () => {
         const map = useLeafletContext().map;
 
         const { rerender } = render(
-            <StrictMode>
-                <MarkerLayer>
-                    <Marker position={{lat: 55.84294011297764, lng: 48.52798461914063}}>children</Marker>
-                </MarkerLayer>
-            </StrictMode>,
+            <MarkerLayer>
+                <Marker position={{lat: 55.84294011297764, lng: 48.52798461914063}}>children</Marker>
+            </MarkerLayer>
         );
         expect(map.getPanes().overlayPane.appendChild).toHaveBeenCalledTimes(1);
 
         rerender(
-            <StrictMode>
-                <MarkerLayer pane="markerPane">
-                    <Marker position={{lat: 55.84294011297764, lng: 48.52798461914063}}>children</Marker>
-                </MarkerLayer>
-            </StrictMode>
+            <MarkerLayer pane="markerPane">
+                <Marker position={{lat: 55.84294011297764, lng: 48.52798461914063}}>children</Marker>
+            </MarkerLayer>
         );
         expect(map.getPanes().overlayPane.removeChild).toHaveBeenCalledTimes(1);
         expect(map.getPanes().markerPane.appendChild).toHaveBeenCalledTimes(2);
@@ -89,13 +81,11 @@ describe('MarkerLayer', () => {
 
     test('Snapshots', () => {
         const { asFragment } = render(
-            <StrictMode>
-                <MarkerLayer>
-                    <Marker position={{lat: 55.84294011297764, lng: 48.52798461914063}}>children 1</Marker>
-                    <Marker position={{lat: 52.84294011297764, lng: 48.52798461914063}}>children 2</Marker>
-                    <Marker position={{lat: 45.84294011297764, lng: 48.52798461914063}}>children 3</Marker>
-                </MarkerLayer>
-            </StrictMode>,
+            <MarkerLayer>
+                <Marker position={{lat: 55.84294011297764, lng: 48.52798461914063}}>children 1</Marker>
+                <Marker position={{lat: 52.84294011297764, lng: 48.52798461914063}}>children 2</Marker>
+                <Marker position={{lat: 45.84294011297764, lng: 48.52798461914063}}>children 3</Marker>
+            </MarkerLayer>
         )
 
         expect(asFragment()).toMatchSnapshot();

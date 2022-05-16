@@ -1,11 +1,10 @@
 # react-leaflet-marker
-[![GitHub Actions CI](https://img.shields.io/npm/v/react-leaflet-marker.svg)](https://www.npmjs.com/package/react-leaflet-marker)
-[![GitHub Actions CI](https://badgen.net/npm/types/react-leaflet-marker)](https://npmjs.org/package/react-leaflet-marker)
+[![npm](https://img.shields.io/npm/v/react-leaflet-marker.svg)](https://www.npmjs.com/package/react-leaflet-marker)
+[![types](https://badgen.net/npm/types/react-leaflet-marker)](https://npmjs.org/package/react-leaflet-marker)
 [![GitHub Actions CI](https://github.com/holytrips/react-leaflet-marker/actions/workflows/ci.yml/badge.svg)](https://github.com/holytrips/react-leaflet-marker/actions/workflows/ci.yml)
-[![GitHub Actions CI](https://img.shields.io/github/license/holytrips/react-leaflet-marker.svg)](https://github.com/holytrips/react-leaflet-marker/blob/master/LICENSE)
-
+[![License](https://badgen.net/github/license/holytrips/react-leaflet-marker)](https://github.com/holytrips/react-leaflet-marker/blob/master/LICENSE)
 Custom markers for react-leaflet maps.
-You can use any react component with version of react-leaflet 3.x.x
+You can use any react component with version of [react-leaflet](https://github.com/PaulLeCam/react-leaflet) 3.x.x
 
 ### Support zoom animation
 ![animation](.github/images/animation.gif)

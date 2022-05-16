@@ -1,7 +1,7 @@
 import  "@testing-library/jest-dom";
 
 import { cleanup, fireEvent, render } from "@testing-library/react";
-import React, { StrictMode } from 'react'
+import React from 'react'
 
 import useZIndex from '../src/hooks/useZIndex';
 import useZoomAnimation from '../src/hooks/useZoomAnimation';
@@ -24,13 +24,11 @@ describe('Marker', () => {
     test('check zIndex', () => {
         (useZIndex as jest.Mock).mockReturnValue([123, null]);
         const { container } = render(
-            <StrictMode>
-                <Marker
-                    position={{lat: 55.84294011297764, lng: 48.52798461914063}}
-                >
-                    <div>children</div>
-                </Marker>
-            </StrictMode>
+            <Marker
+                position={{lat: 55.84294011297764, lng: 48.52798461914063}}
+            >
+                <div>children</div>
+            </Marker>
         );
 
         expect(container.firstChild).toHaveStyle({
@@ -40,14 +38,12 @@ describe('Marker', () => {
 
     test('check size styles', () => {
         const { container } = render(
-            <StrictMode>
-                <Marker
-                    position={{lat: 55.84294011297764, lng: 48.52798461914063}}
-                    size={[40, 50]}
-                >
-                    <div>children</div>
-                </Marker>
-            </StrictMode>
+            <Marker
+                position={{lat: 55.84294011297764, lng: 48.52798461914063}}
+                size={[40, 50]}
+            >
+                <div>children</div>
+            </Marker>
         );
 
         expect(container.firstChild).toHaveStyle({
@@ -59,13 +55,11 @@ describe('Marker', () => {
     test('have to has classNames', () => {
         (useZoomAnimation as jest.Mock).mockReturnValue(true);
         const { container, rerender } = render(
-            <StrictMode>
-                <Marker
-                    position={{lat: 55.84294011297764, lng: 48.52798461914063}}
-                >
-                    <div>children</div>
-                </Marker>
-            </StrictMode>
+            <Marker
+                position={{lat: 55.84294011297764, lng: 48.52798461914063}}
+            >
+                <div>children</div>
+            </Marker>
         );
         expect(container.firstChild).toHaveClass('wrapper');
         expect(container.firstChild).not.toHaveClass('wrapper_interactive');
@@ -75,27 +69,23 @@ describe('Marker', () => {
 
         (useZoomAnimation as jest.Mock).mockReturnValue(false);
         rerender(
-            <StrictMode>
-                <Marker
-                    position={{lat: 55.84294011297764, lng: 48.52798461914063}}
-                >
-                    <div>children</div>
-                </Marker>
-            </StrictMode>
+            <Marker
+                position={{lat: 55.84294011297764, lng: 48.52798461914063}}
+            >
+                <div>children</div>
+            </Marker>
         );
 
         expect(container.firstChild).not.toHaveClass('leaflet-zoom-animated');
         expect(container.firstChild).toHaveClass('leaflet-zoom-hide');
 
         rerender(
-            <StrictMode>
-                <Marker
-                    interactive={true}
-                    position={{lat: 55.84294011297764, lng: 48.52798461914063}}
-                >
-                    <div>children</div>
-                </Marker>
-            </StrictMode>
+            <Marker
+                interactive={true}
+                position={{lat: 55.84294011297764, lng: 48.52798461914063}}
+            >
+                <div>children</div>
+            </Marker>
         );
 
         expect(container.firstChild).toHaveClass('wrapper_interactive');
@@ -109,13 +99,11 @@ describe('Marker', () => {
             onMouseLeave,
         }]);
         const { getByText } = render(
-            <StrictMode>
-                <Marker
-                    position={{lat: 55.84294011297764, lng: 48.52798461914063}}
-                >
-                    just text
-                </Marker>
-            </StrictMode>,
+            <Marker
+                position={{lat: 55.84294011297764, lng: 48.52798461914063}}
+            >
+                just text
+            </Marker>
         );
         const content = getByText(/just text/);
 
@@ -129,15 +117,13 @@ describe('Marker', () => {
 
     test('Snapshot', () => {
         const { asFragment } = render(
-            <StrictMode>
-                <Marker
-                    interactive
-                    size={[23,54]}
-                    position={{lat: 55.84294011297764, lng: 48.52798461914063}}
-                >
-                    children
-                </Marker>
-            </StrictMode>,
+            <Marker
+                interactive
+                size={[23,54]}
+                position={{lat: 55.84294011297764, lng: 48.52798461914063}}
+            >
+                children
+            </Marker>
         );
 
         expect(asFragment()).toMatchSnapshot();
