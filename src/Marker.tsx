@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, {FC} from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 
 import useLatitudeOffset from "./hooks/useLatitudeOffset";
 import useMarkerRef from "./hooks/useMarkerRef";
@@ -11,7 +11,7 @@ import styles from './Marker.module.css';
 import { EPlacement, IMarkerProps } from "./Marker.types";
 
 
-const Marker: FC<IMarkerProps> = ({
+const Marker: FC<PropsWithChildren<IMarkerProps>> = ({
     children,
     position,
     size,
