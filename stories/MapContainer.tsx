@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer as LeafletMapContainer,MapContainerProps, TileLayer } from "react-leaflet";
+import { MapContainer as LeafletMapContainer ,MapContainerProps, TileLayer } from "react-leaflet";
 
 const MapContainer: React.FC<MapContainerProps> = ({
    children,

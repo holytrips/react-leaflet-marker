@@ -1,7 +1,7 @@
 # react-leaflet-marker
 Custom markers for react-leaflet maps.
 
-You can use any react component with version of [react-leaflet](https://github.com/PaulLeCam/react-leaflet) 3.x.x
+You can use any react component with version of [react-leaflet](https://github.com/PaulLeCam/react-leaflet) 3.x.x || 4.x.x
 
 [![npm](https://img.shields.io/npm/v/react-leaflet-marker.svg)](https://www.npmjs.com/package/react-leaflet-marker)
 [![types](https://badgen.net/npm/types/react-leaflet-marker)](https://npmjs.org/package/react-leaflet-marker)
@@ -12,8 +12,13 @@ You can use any react component with version of [react-leaflet](https://github.c
 ![animation](.github/images/animation.gif)
 
 ## Install
+### React 18 react-leaflet 4 
 ```sh
 npm i react-leaflet-marker --save
+```
+### React 17 react-leaflet 3
+```sh
+npm i react-leaflet-marker@1.1.4 --save
 ```
 
 ## Get started

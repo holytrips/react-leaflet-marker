@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 
 import usePlacementAsPoint from "../../src/hooks/usePlacementAsPoint";
 import { EPlacement } from "../../src/Marker.types";

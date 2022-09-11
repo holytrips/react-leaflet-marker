@@ -1,5 +1,5 @@
 import { useLeafletContext } from '@react-leaflet/core';
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import L, { DomUtil, Map, point } from "leaflet";
 import {MutableRefObject} from 'react';
 
