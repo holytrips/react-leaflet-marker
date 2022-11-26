@@ -65,6 +65,7 @@
   "scripts": {
     "build": "rm -rf ./lib/*; microbundle build --tsconfig tsconfig.build.json && size-limit",
     "dev": "start-storybook -p 6006",
+    "builds": "build-storybook",
     "prepare": "husky install",
     "test": "jest",
     "test:watch": "jest --json --outputFile=.jest-test-results.json --watch",
