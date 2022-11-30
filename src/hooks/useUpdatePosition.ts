@@ -1,10 +1,9 @@
-import { useLeafletContext } from "@react-leaflet/core";
 import { DomUtil, LatLngExpression, Point } from "leaflet";
 import { RefObject, useCallback, useEffect, useLayoutEffect } from "react";
+import { useMap } from "react-leaflet";
 
 const useUpdatePosition = (placementAsPoint: Point, position: LatLngExpression, ref: RefObject<HTMLDivElement>) => {
-    const map = useLeafletContext().map;
-
+    const map = useMap()
     const setPos = useCallback((newPosition: LatLngExpression) => {
         if (!ref.current) return;
 
