@@ -1,14 +1,14 @@
-import { useLeafletContext } from "@react-leaflet/core";
-import React, { FC, ReactElement, useEffect, useRef } from 'react';
+import React, { FC, ReactElement, useEffect, useRef } from "react";
+import { useMap } from "react-leaflet";
 
 import { IMarkerProps } from "./Marker.types";
 import { IMarkerLayerProps } from "./MarkerLayer.types";
 
 const MarkerLayer: FC<IMarkerLayerProps> = ({
   children,
-  pane = 'overlayPane'
+  pane = "overlayPane",
 }) => {
-  const map = useLeafletContext().map;
+  const map = useMap();
   const layerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,16 +23,10 @@ const MarkerLayer: FC<IMarkerLayerProps> = ({
   }, [map, pane]);
 
   return (
-    <div
-        ref={layerRef}
-        className="leaflet-objects-pane leaflet-marker-pane"
-    >
-      {React.Children.map(
-          children,
-          (child) => React.cloneElement(
-              child as ReactElement<IMarkerProps>,
-          ))
-      }
+    <div ref={layerRef} className="leaflet-objects-pane leaflet-marker-pane">
+      {React.Children.map(children, (child) =>
+        React.cloneElement(child as ReactElement<IMarkerProps>)
+      )}
     </div>
   );
 };
