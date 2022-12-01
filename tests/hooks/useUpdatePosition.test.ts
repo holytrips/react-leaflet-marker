@@ -1,13 +1,13 @@
-import { useLeafletContext } from '@react-leaflet/core';
 import { renderHook } from '@testing-library/react'
 import L, { DomUtil, Map, point } from "leaflet";
 import {MutableRefObject} from 'react';
+import { useMap } from 'react-leaflet';
 
 import useUpdatePosition from "../../src/hooks/useUpdatePosition";
 import {createContainer, removeMapContainer} from "../utils";
 
-jest.mock('@react-leaflet/core', () => ({
-    useLeafletContext: jest.fn()
+jest.mock('react-leaflet', () => ({
+    useMap: jest.fn()
 }));
 
 jest.mock('leaflet', () => ({
@@ -28,9 +28,7 @@ describe('HOOK: useUpdatePosition', () => {
             zoom: 16
         });
 
-        (useLeafletContext as jest.Mock).mockReturnValue({
-            map,
-        });
+        (useMap as jest.Mock).mockReturnValue(map);
     });
     afterEach(function () {
         removeMapContainer(map, container);
