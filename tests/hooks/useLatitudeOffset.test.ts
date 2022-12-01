@@ -1,12 +1,12 @@
-import { useLeafletContext } from '@react-leaflet/core';
 import { renderHook } from '@testing-library/react'
 import L, { Map,point } from "leaflet";
+import { useMap } from 'react-leaflet';
 
 import useLatitudeOffset from "../../src/hooks/useLatitudeOffset";
 import {createContainer, removeMapContainer} from "../utils";
 
-jest.mock('@react-leaflet/core', () => ({
-    useLeafletContext: jest.fn()
+jest.mock('react-leaflet', () => ({
+    useMap: jest.fn()
 }));
 
 describe('HOOK: useLatitudeOffset', () => {
@@ -20,9 +20,7 @@ describe('HOOK: useLatitudeOffset', () => {
             zoom: 16
         });
 
-        (useLeafletContext as jest.Mock).mockReturnValue({
-            map,
-        });
+        (useMap as jest.Mock).mockReturnValue(map);
     });
     afterEach(function () {
         removeMapContainer(map, container);
