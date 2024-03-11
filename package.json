@@ -6,7 +6,8 @@
   "type": "module",
   "exports": {
     "require": "./lib/react-leaflet-marker.cjs",
-    "default": "./lib/react-leaflet-marker.modern.js"
+    "default": "./lib/react-leaflet-marker.modern.js",
+    "types": "./lib/index.d.ts"
   },
   "main": "lib/react-leaflet-marker.cjs",
   "module": "lib/react-leaflet-marker.module.js",
