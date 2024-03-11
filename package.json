@@ -5,9 +5,9 @@
   "source": "src/index.ts",
   "type": "module",
   "exports": {
+    "types": "./lib/index.d.ts",
     "require": "./lib/react-leaflet-marker.cjs",
-    "default": "./lib/react-leaflet-marker.modern.js",
-    "types": "./lib/index.d.ts"
+    "default": "./lib/react-leaflet-marker.modern.js"
   },
   "main": "lib/react-leaflet-marker.cjs",
   "module": "lib/react-leaflet-marker.module.js",
