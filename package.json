@@ -26,7 +26,8 @@
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-leaflet": "^4.2.0"
+    "react-leaflet": "^4.2.0",
+    "leaflet": "^1.8.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.16.7",
