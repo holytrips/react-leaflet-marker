@@ -1,4 +1,4 @@
-# react-leaflet-marker
+# [react-leaflet-marker](https://www.npmjs.com/package/react-leaflet-marker)
 Custom markers for react-leaflet maps.
 
 You can use any react component with version of [react-leaflet](https://github.com/PaulLeCam/react-leaflet) 3.x.x || 4.x.x
